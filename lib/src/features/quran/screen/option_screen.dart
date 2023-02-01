@@ -103,7 +103,7 @@ class TranslationMode extends StatelessWidget {
           DropdownButtonHideUnderline(
             child: BlocBuilder<QuranThemeBloc, QuranThemeState>(
               builder: (context, state) {
-                return DropdownButton(
+                return DropdownButton<String>(
                   items: List.generate(
                     1,
                     (index) => DropdownMenuItem(
@@ -182,10 +182,8 @@ class QuranFontSize extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              if (BlocProvider.of<QuranThemeBloc>(context).state.quranFontSize >
-                  1)
-                BlocProvider.of<QuranThemeBloc>(context)
-                    .add(ReduceQuranFontSize());
+              if (BlocProvider.of<QuranThemeBloc>(context).state.quranFontSize > 1)
+                BlocProvider.of<QuranThemeBloc>(context).add(ReduceQuranFontSize());
             },
             child: SvgPicture.asset(
               'assets/images/quran_icon/svg/minus.svg',
@@ -245,7 +243,7 @@ class QuranFontFamily extends StatelessWidget {
           DropdownButtonHideUnderline(
             child: BlocBuilder<QuranThemeBloc, QuranThemeState>(
               builder: (context, state) {
-                return DropdownButton(
+                return DropdownButton<String>(
                   items: List.generate(
                     1,
                     (index) => DropdownMenuItem(
@@ -290,12 +288,8 @@ class TranslationFontSize extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              if (BlocProvider.of<QuranThemeBloc>(context)
-                      .state
-                      .translationFontSize >
-                  1)
-                BlocProvider.of<QuranThemeBloc>(context)
-                    .add(ReduceTranslationFontSize());
+              if (BlocProvider.of<QuranThemeBloc>(context).state.translationFontSize > 1)
+                BlocProvider.of<QuranThemeBloc>(context).add(ReduceTranslationFontSize());
             },
             child: SvgPicture.asset(
               'assets/images/quran_icon/svg/minus.svg',
@@ -321,8 +315,7 @@ class TranslationFontSize extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              BlocProvider.of<QuranThemeBloc>(context)
-                  .add(AddTranslationFontSize());
+              BlocProvider.of<QuranThemeBloc>(context).add(AddTranslationFontSize());
             },
             child: SvgPicture.asset(
               'assets/images/quran_icon/svg/add.svg',
@@ -356,7 +349,7 @@ class TranslationFontFamily extends StatelessWidget {
           DropdownButtonHideUnderline(
             child: BlocBuilder<QuranThemeBloc, QuranThemeState>(
               builder: (context, state) {
-                return DropdownButton(
+                return DropdownButton<String>(
                   items: List.generate(
                     1,
                     (index) => DropdownMenuItem(
